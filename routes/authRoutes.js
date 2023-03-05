@@ -13,7 +13,17 @@ router.post('/register', registerController)
 router.post('/login', loginController)
 
 /* Test for middlewares || Method GET */
-router.get('/test', requireSignIn,isAdmin, testController)
+router.get('/test', requireSignIn, isAdmin, testController)
+
+/* Protected Auth Route for user */
+router.get('/user-auth', requireSignIn, (req, res) => {
+    res.status(200).send({ success: true });
+})
+
+/* Protected Auth Route for admin */
+router.get('/admin-auth', requireSignIn, isAdmin, (req, res) => {
+    res.status(200).send({ success: true });
+})
 
 
 
