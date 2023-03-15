@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import ProductCard from '../Components/Products/ProductCard'
 import ShopSidebar from '../Components/SidebarMenu/ShopSidebar'
 import Layout from '../Layout/Layout'
+import { useCart } from '../Context/cart';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -13,6 +14,7 @@ const Home = () => {
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [cart,setCart]  = useCart();
 
     const getProducts = async () => {
         try {
@@ -115,6 +117,8 @@ const Home = () => {
                                         <ProductCard
                                             key={product._id}
                                             product={product}
+                                            cart={cart}
+                                            setCart={setCart}
                                         />
                                     ))}
                                 </div>
