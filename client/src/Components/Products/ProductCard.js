@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { TiTick } from 'react-icons/ti'
 import { toast } from 'react-toastify'
@@ -7,10 +7,10 @@ import { toast } from 'react-toastify'
 const ProductCard = ({ product, cart, setCart }) => {
     const addToCart = (e, product) => {
         e.preventDefault();
-        setCart([...cart, product])
+        setCart([...cart, product]);
+        localStorage.setItem('cart', JSON.stringify([...cart, product]))
         toast.success("Item added to cart")
     }
-    console.log(cart, 'crt')
     return (
         <div className="flex-shrink-0 m-2 relative overflow-hidden bg-orange-500 rounded-lg max-w-[75%] sm:max-w-xs shadow-lg">
             <NavLink to={`/product/${product.slug}`} key={product._id}>
@@ -32,11 +32,8 @@ const ProductCard = ({ product, cart, setCart }) => {
             </NavLink>
             <div className="relative text-white px-6 pb-6 mt-6">
                 <div className="flex justify-end">
-                    <span className="block rounded-full text-white-500 text-xs font-bold px-3 py-2 leading-none items-center">
-                        {cart.includes(product) ?
-                            <TiTick size={'2rem'} /> :
+                    <span className="block rounded-full text-white-500 text-xs font-bold px-3 py-2 leading-none items-center">                       
                             <AiOutlineShoppingCart className="cursor-pointer" size={'2rem'} onClick={(e) => addToCart(e, product)} />
-                        }
                     </span>
                 </div>
             </div>

@@ -11,6 +11,8 @@ import Cart from './Pages/Cart';
 import Home from './Pages/Home';
 import NotFound from './Pages/NotFound';
 import Dashboard from './Pages/User/Dashboard';
+import SingleOrder from './Pages/User/SingleOrder';
+import UserOrders from './Pages/User/UserOrders';
 import AdminRoute from './Routes/AdminRoute';
 import PrivateRoute from './Routes/Private';
 
@@ -22,6 +24,9 @@ function App() {
       {/* protected User Routes  */}
       <Route path="/dashboard" element={<PrivateRoute />}>
         <Route path="user" element={<Dashboard />} />
+        <Route path="user/orders" element={<UserOrders />} />
+        <Route path="user/orders" element={<UserOrders />} />
+        <Route path="user/order/:orderId" element={<SingleOrder />} />
       </Route>
       {/* protected User Routes Ends  */}
 

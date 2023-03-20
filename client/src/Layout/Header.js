@@ -4,15 +4,18 @@ import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md'
 import { useAuth } from '../Context/auth';
 import { toast } from 'react-toastify';
 import { useDark } from '../Context/dark';
+import { useCart } from '../Context/cart';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
     const [dark, setDark] = useDark();
+    const [cart, setCart] = useCart();
     const handleToggle = () => {
         setDark(!dark);
         localStorage.setItem('dark', dark)
     }
-   
+
     return (
         <>
             <div className="container m-auto px-6 md:px-12 lg:px-7">
@@ -64,7 +67,10 @@ const Header = () => {
                                     <NavLink to='/cart' className="block md:px-3 group">
                                         <div className="relative text-gray-600
                                               before:absolute before:-inset-2 before:w-full before:h-0.5 before:origin-left dark:before:bg-yelloe-500 before:mx-auto before:mt-auto before:rounded-full before:bg-yellow-800 before:transition before:scale-x-0 group-hover:before:scale-x-100">
-                                            <span className="transition group-hover:text-yellow-700 dark:text-gray-300 dark:group-hover:text-yellow-300">Cart</span>
+                                            <AiOutlineShoppingCart size={32} />
+                                            <span className="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">{cart?.length}
+                                            </span>
+
                                         </div>
                                     </NavLink>
                                 </li>
