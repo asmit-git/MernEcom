@@ -17,12 +17,12 @@ Features:
 ![Screenshot](loginpage.png)
 ![Screenshot](signuppage.png)
 * Admin can create Category & products
-![Screenshot](admindashboardcategory.png)
+![Screenshot](admindashbaordcategory.png)
 ![Screenshot](admindashboardproducts.png)
 ![Screenshot](admindashboardcreateproduct.png)
 * logged in user can Place order
 ![Screenshot](cart.png)
-* Dark mode and mobile responsive desing
+* Dark mode and mobile responsive design
 ![Screenshot](homedark.png)
 
 
